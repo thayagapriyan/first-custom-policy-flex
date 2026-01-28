@@ -1,0 +1,22 @@
+---
+apiVersion: gateway.mulesoft.com/v1alpha1
+kind: Extension
+metadata:
+  labels:
+    title: chunked-encoding-policy
+    category: Custom
+    metadata/interfaceScope: api,resource
+spec:
+  extends:
+    - name: extension-definition
+      namespace: default
+  properties:
+    chunkSizeKb:
+      type: integer
+      default: 100
+      description: "Chunk size in KB (default 100KB)"
+    enabled:
+      type: boolean
+      default: true
+      description: "Enable or disable chunked encoding"
+  required: []
