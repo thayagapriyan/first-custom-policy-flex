@@ -55,11 +55,11 @@ test: build ## Run integration tests
 
 .PHONY: publish
 publish: build ## Publish a development version of the policy
-	anypoint-cli-v4 pdk policy-project publish --binary-path $(TARGET_DIR)/$(CRATE_NAME).wasm --implementation-gcl-path $(TARGET_DIR)/$(CRATE_NAME)_implementation.yaml
+	anypoint-cli-v4 pdk policy-project publish --binary-path $(TARGET_DIR)/$(CRATE_NAME).wasm --implementation-gcl-path $(TARGET_DIR)/$(CRATE_NAME)_implementation.yaml --client_id $(ANYPOINT_CLIENT_ID) --client_secret $(ANYPOINT_CLIENT_SECRET) --organization $(ANYPOINT_ORG_ID)
 
 .PHONY: release
 release: build ## Publish a release version
-	anypoint-cli-v4 pdk policy-project release --binary-path $(TARGET_DIR)/$(CRATE_NAME).wasm --implementation-gcl-path $(TARGET_DIR)/$(CRATE_NAME)_implementation.yaml
+	anypoint-cli-v4 pdk policy-project release --binary-path $(TARGET_DIR)/$(CRATE_NAME).wasm --implementation-gcl-path $(TARGET_DIR)/$(CRATE_NAME)_implementation.yaml --client_id $(ANYPOINT_CLIENT_ID) --client_secret $(ANYPOINT_CLIENT_SECRET) --organization $(ANYPOINT_ORG_ID)
 
 .PHONY: build-asset-files
 build-asset-files: $(DEFINITION_SRC_GCL_PATH)
